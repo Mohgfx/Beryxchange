@@ -90,8 +90,7 @@
                         
                             <% end %>
                         <% else %>
-                               <a href="https://docs.google.com/forms/d/e/1FAIpQLSfT1UVN9qWqgL4S1D5FaHzC7oYH507ix5Q0zfSRqx63kwDs1w/viewform" class="btn btn-default page-scroll nav-link">Add Coin <i class="ion-ios-arrow-thin-right"></i></a>
-                               <a  href="<%= trading_path(current_market) %>" class="btn btn-border"><%= t('header.getstart') %><i class="fa fa-tachometer-alt"></i></a> </div>
+                               <a href="<%= trading_path(current_market) %>" class="btn btn-default page-scroll nav-link"><%= t('header.getstart') %><i class="ion-ios-arrow-thin-right"></i></a>
                                <a  href="<%= settings_path %>" class="btn btn-border"><%= t('header.settings') %><i class="fa fa-cogs"></i></a> </div>
                         <% end %>
                     </div>
