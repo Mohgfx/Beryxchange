@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
-  layout 'landing'
+  layout 'listex'
   include Concerns::DisableCabinetUI
 
   def index
