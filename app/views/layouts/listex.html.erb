@@ -54,7 +54,7 @@
                         <% provider = ENV['OAUTH2_SIGN_IN_PROVIDER'] %>
                         <% unless provider.blank? %>
                             <ul class="navbar-nav nav_btn">
-                                <li><a class="btn btn-default" href="/auth/<%= provider == 'google' ? 'google_oauth2' : provider %>"><%= t("header.sign_in_with_#{provider}") %></a></li>
+                                <li><a class="btn btn-default" href="/auth/<%= provider == 'google' ? 'google_oauth2' : provider %>">Sign In</a></li>
                             </ul>
                         <% end %>
                 <% else %>
@@ -81,8 +81,17 @@
                         <h3>Start Trading from 1 June18'</h3>
                         <p>Other cryptocurrency trading services charge you with withdrawal fees and commissions. We have a reasonable fee of 0.9%.!</p>
                         <div class="banner_btn">
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfT1UVN9qWqgL4S1D5FaHzC7oYH507ix5Q0zfSRqx63kwDs1w/viewform" class="btn btn-default page-scroll nav-link">Add Coin <i class="ion-ios-arrow-thin-right"></i></a>
-                            <a href="mailto:support@listex.io" class="btn btn-border">Contact us! <i class="ion-ios-arrow-thin-right"></i></a> </div>
+                        <% unless current_user %>
+                            <% provider = ENV['OAUTH2_SIGN_IN_PROVIDER'] %>
+                            <% unless provider.blank? %>      
+                               <a href="https://docs.google.com/forms/d/e/1FAIpQLSfT1UVN9qWqgL4S1D5FaHzC7oYH507ix5Q0zfSRqx63kwDs1w/viewform" class="btn btn-default page-scroll nav-link">Add Coin <i class="ion-ios-arrow-thin-right"></i></a>
+                            <a  href="<%= trading_path(current_market) %>" class="btn btn-border"><%= t('header.getstart') %><i class="fa fa-tachometer-alt"></i></a> </div>
+                            <a  href="<%= settings_path %>" class="btn btn-border"><%= t('header.settings') %><i class="fa fa-cogs"></i></a> </div>
+                            <% end %>
+                        <% else %>
+                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSfT1UVN9qWqgL4S1D5FaHzC7oYH507ix5Q0zfSRqx63kwDs1w/viewform" class="btn btn-default page-scroll nav-link">Add Coin <i class="ion-ios-arrow-thin-right"></i></a>  
+                            <a  href="/auth/<%= provider == 'google' ? 'google_oauth2' : provider %>" class="btn btn-border">Sign in<i class="ion-ios-arrow-thin-right"></i></a> </div>
+                        <% end %>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 order-first">
