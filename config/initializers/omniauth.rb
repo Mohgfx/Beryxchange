@@ -6,17 +6,19 @@ Rails.application.config.middleware.use OmniAuth::Builder do
                ENV.fetch('AUTH0_OAUTH2_CLIENT_SECRET'),
                ENV.fetch('AUTH0_OAUTH2_DOMAIN'),
                { authorize_params: {
-                   scope: ENV.fetch('AUTH0_OAUTH2_SCOPE', 'openid profile email')
+                   scope: ENV.fetch('AUTH0_OAUTH2_SCOPE', 'openid profile email'),
+                   redirect_uri: ENV.fetch('AUTH0_OAUTH2_REDIRECT_URL')
                  }
                }
     when 'google'
-      provider :google_oauth2, ENV.fetch('GOOGLE_CLIENT_ID'), ENV.fetch('GOOGLE_CLIENT_SECRET')
+      provider :google_oauth2, ENV.fetch('GOOGLE_CLIENT_ID'), ENV.fetch('GOOGLE_CLIENT_SECRET'), redirect_uri: ENV.fetch('GOOGLE_OAUTH2_REDIRECT_URL')
 
     when 'barong'
       provider :barong,
                ENV.fetch('BARONG_CLIENT_ID'),
                ENV.fetch('BARONG_CLIENT_SECRET'),
-               domain: ENV.fetch('BARONG_DOMAIN')
+               domain: ENV.fetch('BARONG_DOMAIN'),
+               redirect_uri: ENV.fetch('BARONG_OAUTH2_REDIRECT_URL')
   end
 end
 
