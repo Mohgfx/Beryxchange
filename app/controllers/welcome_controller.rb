@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 class WelcomeController < ApplicationController
-  layout 'listex'
+  layout 'berycoin'
   include Concerns::DisableCabinetUI
 
   def index

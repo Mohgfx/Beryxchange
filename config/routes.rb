@@ -20,6 +20,12 @@ end
 
 Peatio::Application.routes.draw do
 
+  get 'pages/term'
+
+  get 'pages/policy'
+
+  get 'pages/about'
+
   root 'welcome#index'
 
   get '/signout' => 'sessions#destroy', :as => :signout

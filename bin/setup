@@ -7,9 +7,7 @@
 APP_ROOT = File.expand_path('../../', __FILE__)
 
 Dir.chdir APP_ROOT do
-  puts "\n=== Copying config files ==="
-  system 'bin/init_config'
-
+  
   puts "\n=== Install yarn packages ==="
   system 'bin/rake yarn:install'
 
