@@ -6,10 +6,10 @@ defaults: &defaults
   REDIS_PASSWORD: ~ # By default no password is sent to Redis server. Change this if you want to connect using password.
 
   # admin role account
-  ADMIN: 'admin@peatio.tech'
+  ADMIN: 'berycoin@gmail.com'
 
   # site host
-  URL_HOST: localhost:3000
+  URL_HOST: beryxchange.com
   URL_SCHEME: http
   FORCE_SECURE_CONNECTION: 'false' # Set to "true" to disable access via unsecured HTTP, send HSTS headers and use secure cookies.
 
@@ -28,12 +28,12 @@ defaults: &defaults
   LOG_LEVEL: ~ # Default level for production is warn, otherwise – debug.
 
   # Configuration variables for Pusher.
-  PUSHER_APP:              '468163'
-  PUSHER_SECRET:           671b8d34f5ed60160172
+  PUSHER_APP:              '572947'
+  PUSHER_SECRET:           f24ecb672d93e4263f12
   PUSHER_HOST:             api-eu.pusher.com
   PUSHER_PORT:             '443'
   PUSHER_SCHEME:           https
-  PUSHER_CLIENT_KEY:       995279a074b2cd777cf0
+  PUSHER_CLIENT_KEY:       5fa93a53eda0c2c7f2a0
   PUSHER_CLIENT_HTTP_HOST: sockjs-eu.pusher.com
   PUSHER_CLIENT_WS_HOST:   ws-eu.pusher.com
   PUSHER_CLIENT_WS_PORT:   '80'
@@ -42,20 +42,20 @@ defaults: &defaults
 
   # Enabled OAuth2 provider.
   # Don't forget to check out configuration at config/initializers/omniauth.rb.
-  OAUTH2_SIGN_IN_PROVIDER: ~
+  OAUTH2_SIGN_IN_PROVIDER: auth0
 
   # Configuration variables for sign in with Google.
   # See https://github.com/zquestz/omniauth-google-oauth2
-  GOOGLE_CLIENT_ID:
-  GOOGLE_CLIENT_SECRET:
-  GOOGLE_OAUTH2_REDIRECT_URL: ~ # Specify URL address to which user will be redirected after successful sign in.
+  GOOGLE_CLIENT_ID: 536622199879-d745q6fvm4s7vic7uehc8f3dhr8fhvev.apps.googleusercontent.com 
+  GOOGLE_CLIENT_SECRET: 3Ny3vrTuU_o1vuRlGz4Dq8co
+  GOOGLE_OAUTH2_REDIRECT_URL: https://beryxchange.com/auth/google_oauth2/callback  # Specify URL address to which user will be redirected after successful sign in.
 
   # Configuration variables for sign in with Auth0.
   # See https://github.com/auth0/omniauth-auth0
-  AUTH0_OAUTH2_DOMAIN:
-  AUTH0_OAUTH2_CLIENT_ID:
-  AUTH0_OAUTH2_CLIENT_SECRET:
-  AUTH0_OAUTH2_REDIRECT_URL:  ~ # Specify URL address to which user will be redirected after successful sign in.
+  AUTH0_OAUTH2_DOMAIN: beryxchange.auth0.com
+  AUTH0_OAUTH2_CLIENT_ID: npbVCFKqqWslaFjderWqw2mj5RUmqNY0
+  AUTH0_OAUTH2_CLIENT_SECRET: Ok32_XCx4yy-EpXiKlw4-pe6E-fd23gENnLazgGCQxyFVLVIKC7oTuXAHHgQezmy
+  AUTH0_OAUTH2_REDIRECT_URL: https://www.beryxchange.com/auth/auth0/callback
 
   # Configuration variables for sign in with Barong OAuth2 server.
   # See https://github.com/rubykube/omniauth-barong
@@ -86,15 +86,31 @@ defaults: &defaults
   #   The default URL is /webhooks/btc/hook.
 
   # Customize page metadata like title, description & keywords for landing, cabinet & admin modules.
-  METADATA_TITLE:       Peatio Exchange
+  METADATA_TITLE:       Beryxchange
   METADATA_DESCRIPTION: The Opensource Cryptocurrency Exchange
-  METADATA_KEYWORDS:    Peatio,Opensource,Exchange,Cryptocurrency
+  METADATA_KEYWORDS:    Beryxchange,Opensource,Exchange,Cryptocurrency
 
   # Customize bank details which is shown at fiat deposit page. You are free to supply HTML here.
   BANK_DETAILS_HTML: |
-    <div><strong>Use this bank to make a deposit:</strong></div>
-    <div>Bank: National Bank of World</div>
-    <div>Account: 1234567890</div>
+    <div><strong>Use these payment details:</strong></div>
+    <div>Bank: Faysal Bank </div>
+    <div>IBAN: PK68FAYS0262006900135948</div>
+
+    <br />
+    <div><strong>For deposit via Skrill:</strong></div>
+    <div>Skrill/Moneybookers </div>
+    <div>payment: berycoin@gmail.com </div>
+
+    <div><strong>For deposit via Perfect Money:</strong></div>
+    <div>Perfect Money </div>
+    <div>USD: U17714848 </div>
+    <div>EUR: E18194651 </div>
+
+    <div><strong>For deposit via Webmoney:</strong></div>
+    <div>WebMoney </div>
+    <div>WMZ: Z296911417230 </div>
+
+
 
   # Set to "true" to disable markets UI (admins still have access).
   DISABLE_MARKETS_UI: ~
